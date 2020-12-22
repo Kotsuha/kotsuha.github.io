@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>(^^) Socket.IO chat | Redirect...</title>
+	<style>
+		/* https://css-tricks.com/quick-css-trick-how-to-center-an-object-exactly-in-the-center/ */
+		.centered {
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			/* bring your own prefixes */
+			transform: translate(-50%, -50%);
+		}
+	</style>
+</head>
+<body>
+	<div class="centered">
+		Redirect after <span id="time">3</span> seconds...
+	</div>
+	<script type="text/javascript">
+		let url = "http://192.168.1.106:3000/";
+		let seconds = 3;
+		let timeText = document.getElementById("time");
+		timeText.innerHTML = seconds;
+		setInterval(function() {
+			if (seconds > 0) {
+				seconds -= 1;
+				timeText.innerHTML = seconds;
+				if (seconds == 0) {
+					window.location.href = url;
+				}
+			}
+		}, 1000);
+	</script>
+</body>
+</html>
